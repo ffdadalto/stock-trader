@@ -1,5 +1,18 @@
 <template>
-    <h1>Início</h1>
+    <div>
+        <h1 class="display-3 font-weight-light mb-4">Negocie e Consulte suas Ações</h1>
+        <v-sheet :elevation="6" class="pa-2 primary">
+            <v-icon class="white--text mr-3">mdi-information</v-icon>
+            <span class="headline white--text font-weight-light">Você pode Salvar & Carregar os Dados</span>
+        </v-sheet>
+        <v-sheet :elevation="6" class="pa-2 success darken-1 mt-3">
+            <v-icon class="white--text mr-3">mdi-information</v-icon>
+            <span class="headline white--text font-weight-light">Clique em 'Finalizar Dia' para inciar um novo
+                dia!</span>
+        </v-sheet>
+        <v-divider class="my-4"></v-divider>
+        <p class="display-1"><strong>Seu saldo: </strong>{{ funds | moeda }}</p>
+    </div>
 </template>
 
 <script>
@@ -7,6 +20,11 @@ export default {
     name: "Home",
 
     data: () => ({}),
+    computed: {
+        funds() {
+            return this.$store.getters.funds;
+        }
+    }
 };
 </script>
 

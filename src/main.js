@@ -6,6 +6,13 @@ import vuetify from './plugins/vuetify'
 
 Vue.config.productionTip = false
 
+Vue.filter('moeda', value => {
+  return 'R$ ' + value.toLocaleString("pt-BR", {
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2
+  });
+})
+
 new Vue({
   router,
   store,

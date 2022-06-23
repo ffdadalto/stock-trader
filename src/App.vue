@@ -3,7 +3,9 @@
         <Header></Header>
         <v-main>
             <v-container>
-                <router-view />
+                <transition name="slide" mode="out-in">
+                    <router-view></router-view>
+                </transition>
             </v-container>
         </v-main>
     </v-app>
@@ -19,5 +21,42 @@ export default {
     data: () => ({
         //
     }),
+    created() {
+        this.$store.dispatch('initStocks');
+    }
 };
 </script>
+
+<style>
+@keyframes slide-in {
+    from {
+        transform: translateX(-500px);        
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0px);
+        opacity: 1;
+    }
+}
+
+@keyframes slide-out {
+    from {
+        transform: translateX(0px);
+        opacity: 1;
+    }
+
+    to {
+        transform: translateX(-500px);        
+        opacity: 0;
+    }
+}
+
+.slide-enter-active {
+    animation: slide-in 0.2s ease;
+}
+
+.slide-leave-active {
+    animation: slide-out 0.2s ease;
+}
+</style>
