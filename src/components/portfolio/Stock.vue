@@ -1,10 +1,10 @@
 <template>
     <v-flex class="pr-3 pb-3" xs12 md6 lg4>
         <v-card tile class="blue darken-3 white--text">
-            <v-card-title class="headline"><strong>{{ stock.name }}
-                    <small>
-                        (Preço: {{ stock.price | moeda }}) | Qtde: {{ stock.quantity }}
-                    </small></strong>
+            <v-card-title class="headline"><strong>{{ stock.name }}</strong>
+                <small>
+                    (Preço: {{ stock.price | moeda }}) | Qtde: {{ stock.quantity }}
+                </small>
             </v-card-title>
         </v-card>
         <v-card tile>

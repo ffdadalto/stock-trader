@@ -30,7 +30,7 @@ export default {
 <style>
 @keyframes slide-in {
     from {
-        transform: translateX(-500px);        
+        transform: translateX(-500px);
         opacity: 0;
     }
 
@@ -47,7 +47,7 @@ export default {
     }
 
     to {
-        transform: translateX(-500px);        
+        transform: translateX(-500px);
         opacity: 0;
     }
 }
@@ -58,5 +58,10 @@ export default {
 
 .slide-leave-active {
     animation: slide-out 0.2s ease;
+}
+
+small {
+    font-size: 16px;
+    margin-left: 10px;
 }
 </style>
