@@ -16,10 +16,10 @@
                     <v-btn text v-bind="attrs" v-on="on">Salvar & Carregar</v-btn>
                 </template>
                 <v-list>
-                    <v-list-item @click="saveData()">
+                    <v-list-item disabled>
                         <v-list-item-title>Salvar Dados</v-list-item-title>
                     </v-list-item>
-                    <v-list-item @click="loadDataLocal()">
+                    <v-list-item disabled>
                         <v-list-item-title>Carregar Dados</v-list-item-title>
                     </v-list-item>
                 </v-list>
@@ -40,17 +40,17 @@ export default {
 
     data: () => ({}),
     methods: {
-        ...mapActions(['mudarPrecos', 'loadData']),
+        ...mapActions(['mudarPrecos']),
         finalizarDia() {
             this.mudarPrecos();
         },
-        saveData() {
-            const { funds, stockPortfolio, stocks } = this.$store.getters;
-            this.$http.put('data.json', { funds, stockPortfolio, stocks });
-        },
-        loadDataLocal() {
-            this.loadData();
-        }
+        // saveData() {
+        //     const { funds, stockPortfolio, stocks } = this.$store.getters;
+        //     this.$http.put('data.json', { funds, stockPortfolio, stocks });
+        // },
+        // loadDataLocal() {
+        //     this.loadData();
+        // }
     },
     computed: {
         funds() {

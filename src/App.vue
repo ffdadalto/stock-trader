@@ -13,6 +13,8 @@
 
 <script>
 import Header from "./components/Header.vue";
+import { mapActions } from 'vuex';
+
 
 export default {
     name: "App",
@@ -21,8 +23,16 @@ export default {
     data: () => ({
         //
     }),
-    created() {
-        this.$store.dispatch('initStocks');
+    methods: {
+        ...mapActions(['loadData']),
+        carregarDados() {
+            this.loadData();
+        }
+    },
+    mounted() {
+        // this.$store.dispatch('initStocks');
+        this.carregarDados();
+
     }
 };
 </script>

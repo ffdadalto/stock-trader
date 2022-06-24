@@ -40,6 +40,12 @@ export default {
             this.sellStockAction(order);
 
             this.quantity = 0;
+
+            this.saveData();
+        },
+        saveData() {
+            const { funds, stockPortfolio, stocks } = this.$store.getters;
+            this.$http.put('data.json', { funds, stockPortfolio, stocks });
         },
     },
     computed: {
