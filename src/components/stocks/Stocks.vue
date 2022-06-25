@@ -9,12 +9,12 @@ import Stock from "./Stock";
 
 export default {
     name: "Stocks",
-    components: { Stock },   
-    computed:{
-        stocks(){
+    components: { Stock },
+    computed: {
+        stocks() {
             return this.$store.getters.stocks;
         }
-    } 
+    }
 };
 </script>
 
