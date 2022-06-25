@@ -1,19 +1,25 @@
 <template>
     <v-flex class="pr-3 pb-3" xs12 md6 lg4>
-        <v-card tile class="blue darken-3 white--text">
-            <v-card-title class="headline"><strong>{{ stock.name }}</strong>
-                <small>
-                    (Preço: {{ stock.price | moeda }}) | Qtde: {{ stock.quantity }}
-                </small>
+        <v-card tile class="teal darken-1 white--text">
+            <v-card-title class="headline" style="justify-content: space-between;">
+                <v-img :lazy-src="'/assets/' + imgUrl" max-height="80" max-width="80" :src="'/assets/' + imgUrl">
+                </v-img>
+                <strong>{{ stock.name }}</strong>
+                <small>{{ stock.price | moeda }}</small>
             </v-card-title>
         </v-card>
         <v-card tile>
-            <v-container fill-height>
+            <v-container fill-height class="grey lighten-4">
                 <v-text-field class="mr-1" label="Quantidade" type="number"
                     :error="qtdInsuficiente || !Number.isInteger(quantity)" v-model.number="quantity"></v-text-field>
-                <v-btn tile small class="blue darken-3 white--text"
+                <v-btn tile small class="green darken-3 white--text"
                     :disabled="qtdInsuficiente || quantity <= 0 || !Number.isInteger(quantity)" @click="sellStock()">
                     {{ qtdInsuficiente ? 'Insuficiente' : 'Vender' }}</v-btn>
+                <div class="resumo">
+                    <span class="font-italic">
+                        {{ stock.quantity }} ações no valor total de: {{ valorTotal | moeda }}
+                    </span>
+                </div>
             </v-container>
         </v-card>
     </v-flex>
@@ -54,10 +60,19 @@ export default {
         },
         qtdInsuficiente() {
             return this.qtdAcoes < this.quantity;
+        },
+        valorTotal() {
+            return this.qtdAcoes * this.stock.price;
         }
     }
 };
 </script>
 
-<style>
+<style scoped>
+.resumo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
 </style>
