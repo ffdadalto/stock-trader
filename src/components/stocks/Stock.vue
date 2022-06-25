@@ -1,9 +1,10 @@
 <template>
     <v-flex class="pr-3 pb-3" xs12 md6 lg4>
         <v-card tile class="blue-grey darken-1 white--text">
-            <v-card-title class="headline" style="justify-content: space-between;">
+            <v-card-title class="headline titulo-acao" style="justify-content: space-between;">
                 <!-- <v-img lazy-src="/img/Adidas.png" max-height="80" max-width="80" src="/img/Adidas.png"></v-img> -->
-                <v-img lazy-src="@/assets/Adidas.png" max-height="80" max-width="80" src="@/assets/Adidas.png"></v-img>
+                <v-img :lazy-src="require('@/assets/' + stock.imgUrl)" max-height="80" max-width="80"
+                    :src="require('@/assets/' + stock.imgUrl)"></v-img>
                 <strong>{{ stock.name }}</strong>
                 <small>{{ stock.price | moeda }}</small>
             </v-card-title>
@@ -58,5 +59,8 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
+.titulo-acao {
+    padding: 5px 20px;
+}
 </style>

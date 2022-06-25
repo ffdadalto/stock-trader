@@ -1,9 +1,9 @@
 <template>
     <v-flex class="pr-3 pb-3" xs12 md6 lg4>
-        <v-card tile class="teal darken-1 white--text">
-            <v-card-title class="headline" style="justify-content: space-between;">
-                <v-img :lazy-src="'/assets/' + imgUrl" max-height="80" max-width="80" :src="'/assets/' + imgUrl">
-                </v-img>
+        <v-card tile class="grey darken-1 white--text">
+            <v-card-title class="headline titulo-acao" style="justify-content: space-between;">
+                <v-img :lazy-src="require('@/assets/' + stock.imgUrl)" max-height="80" max-width="80"
+                    :src="require('@/assets/' + stock.imgUrl)"></v-img>
                 <strong>{{ stock.name }}</strong>
                 <small>{{ stock.price | moeda }}</small>
             </v-card-title>
@@ -74,5 +74,9 @@ export default {
     justify-content: center;
     align-items: center;
     width: 100%;
+}
+
+.titulo-acao {
+    padding: 5px 20px;
 }
 </style>
